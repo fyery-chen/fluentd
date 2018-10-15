@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v1.1-debian
+FROM fyery/fluentd:v0.1
 
 RUN buildDeps="sudo build-essential libc-dev ruby-dev" \
  && echo "gem: --no-ri --no-rdoc" >> ~/.gemrc \
@@ -13,6 +13,7 @@ RUN buildDeps="sudo build-essential libc-dev ruby-dev" \
  && gem install fluent-plugin-rewrite-tag-filter \
  && gem install fluent-plugin-prometheus \
  && gem install zookeeper \
+ && gem install gssapi \
  && sudo gem sources --clear-all \
  && SUDO_FORCE_REMOVE=yes \
     apt-get purge -y --auto-remove \
