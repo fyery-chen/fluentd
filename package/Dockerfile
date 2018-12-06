@@ -34,11 +34,12 @@ RUN  echo "gem: --no-ri --no-rdoc" >> ~/.gemrc \
  && gem install oj -v 3.3.10 \
  && gem install json -v 2.1.0 \
  && gem install fluentd -v 1.1.3 \
+ && gem install ruby-kafka -v 0.6.7 \
  && gem install fluent-plugin-elasticsearch -v 2.11.0 \
  && gem install fluent-plugin-secure-forward -v 0.4.5 \
  && gem install fluent-plugin-kubernetes_metadata_filter -v 2.1.2 \
  && gem install fluent-plugin-splunk-enterprise -v 0.9.0 \
- && gem install fluent-plugin-kafka -v 0.8.0 \
+ && gem install fluent-plugin-kafka -v 0.7.3 \
  && gem install fluent-plugin-remote_syslog_tls -v 1.0.2 \ 
  && gem install fluent-plugin-rewrite-tag-filter -v 2.1.0 \
  && gem install fluent-plugin-prometheus -v 1.0.1 \
