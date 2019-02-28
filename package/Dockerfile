@@ -75,6 +75,9 @@ RUN mkdir -p /fluentd/etc/config/custom/cluster/
 RUN mkdir -p /fluentd/etc/config/custom/project/
 RUN mkdir -p /fluentd/etc/config/system/
 
+RUN groupadd -r fluent && useradd -r -g fluent fluent
+RUN chown -R fluent /fluentd && chgrp -R fluent /fluentd
+
 COPY fluent.conf /fluentd/etc/
 COPY custom_cluster.conf /fluentd/etc/config/custom/
 COPY custom_project.conf /fluentd/etc/config/custom/
@@ -91,6 +94,7 @@ ENV DUMB_INIT_SETSID 0
 
 EXPOSE 24224 5140
 
+USER fluent
 ENTRYPOINT ["/bin/entrypoint.sh"]
 
 #CMD exec fluentd -c /fluentd/etc/${FLUENTD_CONF} -p /fluentd/plugins $FLUENTD_OPT
